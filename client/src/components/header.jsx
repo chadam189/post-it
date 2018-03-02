@@ -5,7 +5,7 @@ const Header = (props) => {
   	<div>
 			<div className="header">
 			  <h1>Post-It Notes Board!</h1>
-			  <div className="btn-add-note">
+			  <div className="btn-add-note" onClick={props.onAddNoteClick}>
 			    <div className="add-note-plus">+</div>
 			    <div>Add Note</div>
 			  </div>

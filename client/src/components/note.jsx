@@ -4,15 +4,13 @@ class Note extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			title: this.props.note.title,
-			color: this.props.note.color
 		};
 	}
 
   render() {
 	  return (
 	  	<div className="note">
-	  	  <div className={`note-trim note-category-${this.props.note.color}`}></div>
+	  	  <div className={`note-trim category-${this.props.note.color}`}></div>
 	  	  <div className="note-header">
           <h4>{this.props.note.title}</h4>
           <div className="btn-edit"></div>
