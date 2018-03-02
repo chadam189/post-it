@@ -179,18 +179,6 @@ body {
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-.modal-content-delete {
-	display: none;
-	position: fixed;
-	left: 0;
-	top: 80px;
-	z-index: 1;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.3);
-}
-
 .modal-add {
 	position: fixed;
 	width: 43.7%;
@@ -274,6 +262,18 @@ body {
 	grid-template-columns: 25% 25% 25% 25%;
 }
 
+.btn-cancel-new-note {
+	grid-column-start: 1;
+  margin: auto;
+	border-radius: 5px;
+	height: 40%;
+	width: auto;
+	padding: 4px 24px 4px 24px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(211, 211, 211);
+	line-height: 42px;
+}
+
 .btn-save-new-note {
 	grid-column-start: 4;
   margin: auto;
@@ -286,15 +286,68 @@ body {
 	line-height: 42px;
 }
 
-.btn-cancel-new-note {
+
+/*****************************
+
+==== MODALS - DELETE NOTE ====
+
+*****************************/
+
+.modal-delete {
+	position: fixed;
+	width: 25%;
+	height: 250px;
+	margin-left: 37.5%;
+	margin-top: 12%;
+	border-radius: 8px;
+	background-color: rgb(255, 255, 255);
+}
+
+.modal-delete-title {
+  height: 20%;
+  margin: 8% 8% 0% 8%;
+  font-size: 140%;
+  color: rgb(99, 103, 125);
+}
+
+.modal-delete-message {
+  height: 20%;
+  margin: 0% 8% 8% 8% ;
+  color: rgb(188, 188, 188);
+}
+
+.modal-delete-footer {
+	height: 40%;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	background-color: rgb(250, 250, 250);
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+}
+
+.btn-cancel-delete-note {
 	grid-column-start: 1;
   margin: auto;
 	border-radius: 5px;
 	height: 40%;
 	width: auto;
-	padding: 4px 24px 4px 24px;
+	margin-left: 40px;
+	padding: 4px 24px;
 	color: rgb(255, 255, 255);
 	background-color: rgb(211, 211, 211);
+	line-height: 42px;
+}
+
+.btn-confirm-delete-note {
+	grid-column-start: 4;
+  margin: auto;
+	border-radius: 5px;
+	height: 40%;
+	width: auto;
+	margin-right: 40px;
+	padding: 4px 24px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(109, 180, 189);
 	line-height: 42px;
 }
 

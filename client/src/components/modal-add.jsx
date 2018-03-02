@@ -26,11 +26,6 @@ class ModalAdd extends Component {
   }
 
   onContentChange(content) {
-  	// if (content !== '' && this.state.title !== '') {
-  	// 	this.setState({
-  	// 		saveNoteStatus: true
-  	// 	});
-  	// }
     this.setState({
     	content
     });

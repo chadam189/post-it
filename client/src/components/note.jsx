@@ -14,7 +14,11 @@ class Note extends Component {
 	  	  <div className="note-header">
           <h4>{this.props.note.title}</h4>
           <div className="btn-edit"></div>
-          <div className="btn-delete"></div>
+          <div 
+            className="btn-delete"
+            onClick={() => this.props.onDeleteNoteClick(this.props.note.index)}
+          >
+          </div>
 	  	  </div>
 	  	  <div className="note-body">
           <p>{this.props.note.content}</p>

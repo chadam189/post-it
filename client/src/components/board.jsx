@@ -16,6 +16,7 @@ class Board extends Component {
     let notesList = this.props.notes.map(note => <Note 
       key={note.title}
       note={note} 
+      onDeleteNoteClick={this.props.onDeleteNoteClick}
     />);
 
 	  return (
