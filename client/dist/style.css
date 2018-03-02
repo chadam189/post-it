@@ -45,7 +45,7 @@ body {
   color: rgb(235, 76, 61);
 }
 
-.btn-add-note {
+.btn-add {
 	grid-column-start: 3;
 	display: flex;
 	justify-content: center;
@@ -179,7 +179,13 @@ body {
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-.modal-add {
+/*****************************
+
+===== MODAL: DISPLAY NOTE ====
+
+*****************************/
+
+.modal-note {
 	position: fixed;
 	width: 43.7%;
 	height: 700px;
@@ -189,20 +195,20 @@ body {
 	background-color: rgb(255, 255, 255);
 }
 
-.modal-add-trim {
+.modal-note-trim {
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 	height: 1.5%;
 }
 
-.modal-add-category-select {
+.modal-note-category-select {
 	height: 2%;
 	display: flex;
 	justify-content: flex-start;
 	padding: 4% 7%;
 }
 
-.modal-add-category-option {
+.modal-note-category-option {
   height: 25px;
   width: 25px;
   margin: 0 3px;
@@ -210,12 +216,12 @@ body {
   padding: 0;
 }
 
-.modal-add-title {
+.modal-note-title {
 	height: 10%;
 	margin: auto;
 }
 
-.modal-add-title input {
+.modal-note-title input {
 	height: 100%;
 	width: 80%;
   box-shadow: none;
@@ -226,17 +232,17 @@ body {
 	color: rgb(99, 103, 125);
 }
 
-.modal-add-title input::placeholder {
+.modal-note-title input::placeholder {
 	color: rgb(220, 220, 220);
 }
 
-.modal-add-content {
+.modal-note-content {
 	height: 66.5%;
 	margin: auto;
 	overflow: none;
 }
 
-.modal-add-content textarea {
+.modal-note-content textarea {
 	height: 90%;
 	width: 84%;
   box-shadow: none;
@@ -249,11 +255,17 @@ body {
 	resize: none;
 }
 
-.modal-add-content textarea::placeholder {
+.modal-note-content textarea::placeholder {
 	color: rgb(220, 220, 220);
 }
 
-.modal-add-footer {
+/*****************************
+
+=== MODAL: CREATE/EDIT NOTE ===
+
+*****************************/
+
+.modal-note-footer {
 	height: 15%;
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
@@ -262,7 +274,7 @@ body {
 	grid-template-columns: 25% 25% 25% 25%;
 }
 
-.btn-cancel-new-note {
+.btn-cancel-note-changes {
 	grid-column-start: 1;
   margin: auto;
 	border-radius: 5px;
@@ -274,7 +286,7 @@ body {
 	line-height: 42px;
 }
 
-.btn-save-new-note {
+.btn-save-note-changes {
 	grid-column-start: 4;
   margin: auto;
 	border-radius: 5px;
@@ -289,7 +301,7 @@ body {
 
 /*****************************
 
-==== MODALS - DELETE NOTE ====
+===== MODAL: DELETE NOTE =====
 
 *****************************/
 
