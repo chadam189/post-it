@@ -1,0 +1,149 @@
+body {
+  font-family: 'Quicksand', arial, 'sans-serif';
+  background-color: rgb(249, 249, 251);
+}
+
+.header {
+	display: grid;
+	grid-template-columns: 26% 48% 26%;
+	background-color: rgb(32, 37, 39);
+	border: 1px solid black;
+	height: 80px;
+}
+
+.header h1 {
+  grid-column-start: 2;
+  margin: auto;
+  color: rgb(235, 76, 61);
+}
+
+.button-add-note {
+	grid-column-start: 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  margin: auto;
+	border-radius: 5px;
+	height: 50%;
+	padding-top: 0px;
+	padding-left: 15px; 
+	padding-right: 15px; 
+	font-size: 100%;
+	color: rgb(255, 255, 255);
+	background-color: rgb(109, 180, 189);
+	vertical-align: left;
+
+}
+
+.add-note-plus {
+	font-size: 200%;
+	padding: 0px 10px 8px 4px;
+}
+
+.board-container {
+	display: grid;
+	grid-template-columns: 7% 84% 7%;
+	background-color: rgb(249, 249, 251);
+}
+
+.board {
+	grid-column-start: 2;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.note {
+	height: 290px;
+	width: 24%;
+	margin-top: 30px;
+	border-radius: 8px;
+	background-color: white;
+	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.note-trim {
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	height: 2%;
+}
+
+.note-category-red {
+	background-color: rgb(239, 173, 177);
+}
+
+.note-category-green {
+	background-color: rgb(192, 234, 211);
+}
+
+.note-category-orange {
+	background-color: rgb(246, 220, 179);
+}
+
+.note-category-blue {
+	background-color: rgb(179, 204, 247);
+}
+
+.note-header {
+	height: 21%;
+	border-bottom: 1px solid rgb(242, 242, 242);
+	display: grid;
+	grid-template-columns: 8% 64% 6% 8% 8% 6%
+}
+
+.note-header h4 {
+	grid-column-start: 2;
+	color: rgb(99, 103, 125);
+	margin: 0;
+	padding: 18px 5px 0 0;
+	font-size: 140%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.btn-edit {
+	grid-column-start: 4;
+	background-image: url("./../src/images/pencil-grey.png");
+	background-repeat: no-repeat;
+	background-size: auto 22px;
+	background-position: center;
+}
+
+.btn-edit:hover {
+	grid-column-start: 4;
+	background-image: url("./../src/images/pencil-green.png");
+	background-repeat: no-repeat;
+	background-size: auto 22px;
+	background-position: center;
+}
+
+.btn-delete {
+	grid-column-start: 5;
+	background-image: url("./../src/images/trashcan-grey.png");
+	background-repeat: no-repeat;
+	background-size: auto 22px;
+	background-position: center;
+}
+
+.btn-delete:hover {
+	grid-column-start: 5;
+	background-image: url("./../src/images/trashcan-green.png");
+	background-repeat: no-repeat;
+	background-size: auto 22px;
+	background-position: center;
+}
+
+.note-body {
+	display: grid;
+  grid-template-columns: 8% 80% 12%;
+}
+
+.note-body p {
+	grid-column-start: 2;
+	white-space: pre;
+	color: rgb(188, 188, 188);
+}
+
+
