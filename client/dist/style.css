@@ -4,11 +4,17 @@ body {
 }
 
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 0;
 	display: grid;
 	grid-template-columns: 26% 48% 26%;
 	background-color: rgb(32, 37, 39);
 	border: 1px solid black;
 	height: 80px;
+	width: 100%;
+
 }
 
 .header h1 {
@@ -17,7 +23,7 @@ body {
   color: rgb(235, 76, 61);
 }
 
-.button-add-note {
+.btn-add-note {
 	grid-column-start: 3;
 	display: flex;
 	justify-content: center;
@@ -47,6 +53,7 @@ body {
 }
 
 .board {
+	margin-top: 80px;
 	grid-column-start: 2;
 	display: flex;
 	justify-content: space-between;
@@ -112,11 +119,7 @@ body {
 }
 
 .btn-edit:hover {
-	grid-column-start: 4;
 	background-image: url("./../src/images/pencil-green.png");
-	background-repeat: no-repeat;
-	background-size: auto 22px;
-	background-position: center;
 }
 
 .btn-delete {
@@ -128,11 +131,8 @@ body {
 }
 
 .btn-delete:hover {
-	grid-column-start: 5;
 	background-image: url("./../src/images/trashcan-green.png");
-	background-repeat: no-repeat;
-	background-size: auto 22px;
-	background-position: center;
+
 }
 
 .note-body {

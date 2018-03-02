@@ -5,7 +5,7 @@ const Header = (props) => {
   	<div>
 			<div className="header">
 			  <h1>Post-It Notes Board!</h1>
-			  <div className="button-add-note">
+			  <div className="btn-add-note">
 			    <div className="add-note-plus">+</div>
 			    <div>Add Note</div>
 			  </div>
