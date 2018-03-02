@@ -59,14 +59,14 @@ class App extends Component {
     this.setState({
       currentNoteIndex: index,
       currentModal: 'EDIT_NOTE',
-    }, () => console.log(`index clicked: ${this.state.currentNoteIndex} and note: ${JSON.stringify(this.state.notes[this.state.currentNoteIndex])}`));
+    });
   }
 
   onDeleteNoteClick(index) {
     this.setState({
       currentNoteIndex: index,
       currentModal: 'DELETE_NOTE',
-    }, () => console.log(`index clicked: ${this.state.currentNoteIndex} and note: ${JSON.stringify(this.state.notes[this.state.currentNoteIndex])}`));
+    });
   }
 
   exitModalView() {
