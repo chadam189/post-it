@@ -9,7 +9,7 @@ body {
 	left: 0;
 	margin: 0;
 	display: grid;
-	grid-template-columns: 26% 48% 26%;
+	grid-template-columns: 22% 56% 22%;
 	background-color: rgb(32, 37, 39);
 	border: 1px solid black;
 	height: 80px;
@@ -31,9 +31,7 @@ body {
   margin: auto;
 	border-radius: 5px;
 	height: 50%;
-	padding-top: 0px;
-	padding-left: 15px; 
-	padding-right: 15px; 
+	padding: 4px 24px 4px 24px;
 	font-size: 100%;
 	color: rgb(255, 255, 255);
 	background-color: rgb(109, 180, 189);
@@ -48,7 +46,7 @@ body {
 
 .board-container {
 	display: grid;
-	grid-template-columns: 7% 84% 7%;
+	grid-template-columns: 5% 90% 5%;
 	background-color: rgb(249, 249, 251);
 }
 
@@ -56,14 +54,14 @@ body {
 	margin-top: 80px;
 	grid-column-start: 2;
 	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
-	flex-wrap: wrap;
+	justify-content: flex-start;
+	flex-flow: row wrap;
 }
 
 .note {
 	height: 290px;
 	width: 24%;
+	margin-right: 1%;
 	margin-top: 30px;
 	border-radius: 8px;
 	background-color: white;
