@@ -1,32 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
+ 
+const Note = (props) => {
 
-class Note extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-		};
-	}
+  return (
+  	<div className="note">
+  	  <div className={`note-trim category-${props.note.color}`}></div>
+  	  <div className="note-header">
+        <h4>{props.note.title}</h4>
+        <div className="btn-edit"
+          onClick={() => props.onEditNoteClick(props.note.index)}
+        />
+        <div 
+          className="btn-delete"
+          onClick={() => props.onDeleteNoteClick(props.note.index)}
+        />
+  	  </div>
+  	  <div className="note-body">
+        <p>{props.note.content}</p>
+  	  </div>
+    </div>
+  );
 
-  render() {
-	  return (
-	  	<div className="note">
-	  	  <div className={`note-trim category-${this.props.note.color}`}></div>
-	  	  <div className="note-header">
-          <h4>{this.props.note.title}</h4>
-          <div className="btn-edit"></div>
-          <div 
-            className="btn-delete"
-            onClick={() => this.props.onDeleteNoteClick(this.props.note.index)}
-          >
-          </div>
-	  	  </div>
-	  	  <div className="note-body">
-          <p>{this.props.note.content}</p>
-	  	  </div>
-	    </div>
-	  );
-	}
 }
 
-
 export default Note;
+          

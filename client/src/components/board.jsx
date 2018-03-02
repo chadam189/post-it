@@ -1,34 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Note from './note.jsx';
-import Modal from './modal-add.jsx';
 
-class Board extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			// notes: []
-		};
+const Board = (props) => {
 
-	}
-
-  render() {
-
-    let notesList = this.props.notes.map(note => <Note 
-      key={note.title}
-      note={note} 
-      onDeleteNoteClick={this.props.onDeleteNoteClick}
+  let notesList = props.notes.map((note, index) => 
+  	<Note 
+	    key={index}
+	    note={note} 
+	    onEditNoteClick={props.onEditNoteClick}
+	    onDeleteNoteClick={props.onDeleteNoteClick}
     />);
 
-	  return (
-	  	<div>
-				<div className="board-container">
-				  <div className="board">
-             {notesList}
-				  </div>
-	      </div>
-	    </div>
-	  );
-	}
+  return (
+  	<div>
+			<div className="board-container">
+			  <div className="board">
+          {notesList}
+			  </div>
+      </div>
+    </div>
+  );
+
 }
 
 export default Board;

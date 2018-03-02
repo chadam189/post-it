@@ -1,168 +1,138 @@
 import React, { Component } from 'react';
+
 import Header from './header.jsx';
 import Board from './board.jsx';
-import ModalAdd from './modal-add.jsx';
-import DeleteNoteModal from './modal-delete.jsx';
+import ModalConductor from './modal-conductor.jsx';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colors: ['red', 'green', 'orange', 'blue'],
       notes: [
         {
-          title: "Seis",
+          title: "Groceries",
           color: "red",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
+          content: "Cheese \nEggs \nTortillas \nHot Sauce ",
           index: 0,
         },
         {
-          title: "Uno",
-          color: "red",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
+          title: "To-Do",
+          color: "green",
+          content: "Laundry \nGet birthday gift for Mom \nGo to gym ",
           index: 1,
         },
         {
-          title: "Ocho",
-          color: "green",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
+          title: "Netflix To-Do",
+          color: "orange",
+          content: "30 Rock \nParks and Rec \nThe Office ",
           index: 2,
         },
         {
-          title: "Tres",
-          color: "green",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
+          title: "Italy trip",
+          color: "blue",
+          content: "Rome \nAmalfi \nNaples \n",
           index: 3,
         },
-        {
-          title: "Deuce",
-          color: "orange",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
-          index: 4,
-        },
-        {
-          title: "Siete",
-          color: "orange",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
-          index: 5
-        },
-        {
-          title: "Cinco",
-          color: "blue",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
-          index: 6,
-        },
-        {
-          title: "Diaz",
-          color: "blue",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
-          index: 7,
-        },
-        {
-          title: "Nueve",
-          color: "blue",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
-          index: 8,
-        },
-        {
-          title: "Quattro",
-          color: "blue",
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin ",
-          index: 9,
-        }
       ],
-      isAddNoteModelActive: false,
-      deleteModalIndex: null,
+      currentModal: null,
+      currentNoteIndex: null,
     };
 
-    this.onModalExit = this.onModalExit.bind(this);
+    this.onAddNoteClick = this.onAddNoteClick.bind(this);
+    this.onEditNoteClick = this.onEditNoteClick.bind(this);
+    this.onDeleteNoteClick = this.onDeleteNoteClick.bind(this);
+
+    this.createNote = this.createNote.bind(this);
+    this.editNote = this.editNote.bind(this);
     this.deleteNote = this.deleteNote.bind(this);
+
+    this.exitModalView = this.exitModalView.bind(this);
   }
 
   onAddNoteClick() {
     this.setState({
-      isAddNoteModelActive: true,
+      currentModal: 'ADD_NOTE',
     })
+  }
+
+  onEditNoteClick(index) {
+    this.setState({
+      currentNoteIndex: index,
+      currentModal: 'EDIT_NOTE',
+    }, () => console.log(`index clicked: ${this.state.currentNoteIndex} and note: ${JSON.stringify(this.state.notes[this.state.currentNoteIndex])}`));
   }
 
   onDeleteNoteClick(index) {
-    console.log(index)
     this.setState({
-      deleteModalIndex: index,
+      currentNoteIndex: index,
+      currentModal: 'DELETE_NOTE',
+    }, () => console.log(`index clicked: ${this.state.currentNoteIndex} and note: ${JSON.stringify(this.state.notes[this.state.currentNoteIndex])}`));
+  }
+
+  exitModalView() {
+    this.setState({
+      currentNoteIndex: null,
+      currentModal: null,
     });
   }
 
-  onModalExit() {
-    this.setState({
-      isAddNoteModelActive: false,
-    })
-  }
-
-  saveNewNote(note) {
-    let notesList = [...this.state.notes, note];
-    let colorMap = {
-      'red': 1,
-      'green': 2,
-      'orange': 3,
-      'blue': 4
-    }
-    notesList.sort((a, b) => {
-      if (colorMap[a.color] === colorMap[b.color]) {
-        return a.title.toLowerCase() > b.title.toLowerCase();
-      } else {
-        return colorMap[a.color] > colorMap[b.color];
-      }
-    });
-    notesList.forEach((note, index) => note.index = index);
-
-    this.setState({
-      notes: notesList
-    });
-    // this.onModalExit();
-  }
-
-  deleteNote() {
-    let notesList = [...this.state.notes];
-
-    let noteToDelete = this.state.notes[this.state.deleteModalIndex];
-
-    // console.log(`index ${this.state.deleteModalIndex} and note to delete: ${JSON.stringify(noteToDelete, null, 2)}`);
-
-    notesList.splice(this.state.deleteModalIndex, 1);
-
-    // console.log(`should be missing index ${this.state.deleteModalIndex}: ${JSON.stringify(notesList, null, 2)}`);
-
-    notesList.forEach((note, index) => note.index = index);
-
-    // console.log(`notes should be in new indexed order: ${JSON.stringify(notesList, null, 2)}`);
+  createNote(newNote) {
+    // add new note to the end of the notes list, and set index accordingly
+    newNote.index = this.state.notes.length;
+    let notesList = [...this.state.notes, newNote];
 
     this.setState({
       notes: notesList,
-      deleteModalIndex: null,
+      currentNoteIndex: null,
+      currentModal: null,
     });
-    // this.onModalExit();
+    this.exitModalView();
+  }
+
+  editNote(modifiedNote) {
+    let notesList = [...this.state.notes];
+    modifiedNote.index = this.state.currentNoteIndex;
+    notesList[this.state.currentNoteIndex] = modifiedNote;
+
+    this.setState({
+      notes: notesList,
+      currentNoteIndex: null,
+      currentModal: null,
+    });
+    this.exitModalView();
+  }
+
+  deleteNote() {
+    console.log(`index to be deleted: ${this.state.currentNoteIndex} and note to be deleted: ${JSON.stringify(this.state.notes[this.state.currentNoteIndex])}`);
+    let notesList = [...this.state.notes];
+    notesList.splice(this.state.currentNoteIndex, 1);
+    notesList.forEach((note, index) => note.index = index);
+
+    this.setState({
+      notes: notesList,
+    });
+    this.exitModalView();
   }
 
   render() {
     return (
       <div>
         <Header 
-          onAddNoteClick={this.onAddNoteClick.bind(this)}
+          onAddNoteClick={this.onAddNoteClick}
         />
         <Board 
           notes={this.state.notes}
-          onDeleteNoteClick={this.onDeleteNoteClick.bind(this)}
+          onEditNoteClick={this.onEditNoteClick}
+          onDeleteNoteClick={this.onDeleteNoteClick}
         />
-        {this.state.isAddNoteModelActive && 
-          <ModalAdd 
-            onModalExit={this.onModalExit}
-            saveNewNote={this.saveNewNote.bind(this)}
-          /> }
-        {this.state.deleteModalIndex !== null && 
-          <DeleteNoteModal
-            onModalExit={this.onModalExit}
-            deleteNote={this.deleteNote}
-          /> }
+        <ModalConductor 
+          currentModal={this.state.currentModal}
+          currentNote={this.state.notes[this.state.currentNoteIndex]}
+          createNote={this.createNote}
+          editNote={this.editNote}
+          deleteNote={this.deleteNote}
+          exitModalView={this.exitModalView}
+        />
       </div>
     )
   }

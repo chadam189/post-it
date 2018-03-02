@@ -14,16 +14,12 @@ const DeleteNoteModdal = (props) => {
 	  	  <div className="modal-delete-footer">
           <div 
             className="btn-cancel-delete-note"
-            onClick={props.onModalExit}
-          >
-            Cancel
-          </div>
+            onClick={props.exitModalView}
+          >Cancel</div>
           <div 
             className="btn-confirm-delete-note"
             onClick={props.deleteNote}
-          >
-            Delete
-          </div>
+          >Delete</div>
 	  	  </div>
 	  	</div>
     </div>
