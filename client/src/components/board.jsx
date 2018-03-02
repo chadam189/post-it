@@ -7,24 +7,29 @@ class Board extends Component {
 		this.state = {
 			notes: [
 			  {
-			  	title: 'Untitled Example',
-			  	color: 'blue'
+			  	title: 'Untitled Unounoeasdffyukfggg',
+			  	color: 'red',
+			  	content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
 			  },
 			  {
 			  	title: 'Untitled Deuce',
-			  	color: 'mango'
+			  	color: 'orange',
+			  	content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
 			  },
 			  {
 			  	title: 'Untitled Tres',
-			  	color: 'yellow'
+			  	color: 'green',
+			  	content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
 			  },
 			  {
-			  	title: 'Untitled Deuce',
-			  	color: 'green'
+			  	title: 'Untitled Quattro',
+			  	color: 'blue',
+			  	content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
 			  },
 			  {
-			  	title: 'Untitled Deuce',
-			  	color: 'blue'
+			  	title: 'Untitled Cinco',
+			  	color: 'blue',
+			  	content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
 			  },
 		 ]
 		};

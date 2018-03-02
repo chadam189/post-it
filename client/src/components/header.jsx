@@ -4,7 +4,7 @@ const Header = (props) => {
   return (
   	<div>
 			<div className="header">
-			  <h3>Post-It Notes Board!</h3>
+			  <h1>Post-It Notes Board!</h1>
 			  <div className="button-add-note">
 			    <div className="add-note-plus">+</div>
 			    <div>Add Note</div>
