@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Header from './header.jsx';
 import Board from './board.jsx';
 import ModalAdd from './modal-add.jsx';
@@ -8,59 +7,60 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentMode: false,
+      colors: ['red', 'green', 'orange', 'blue'],
       notes: [
         {
-          title: 'Uno',
-          color: 'red',
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
+          "title": "Seis",
+          "color": "red",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
         },
         {
-          title: 'Deuce',
-          color: 'orange',
-          content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
+          "title": "Uno",
+          "color": "red",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
         },
         {
-          title: 'Tres',
-          color: 'green',
-          content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
+          "title": "Ocho",
+          "color": "green",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
         },
         {
-          title: 'Quattro',
-          color: 'blue',
-          content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
+          "title": "Tres",
+          "color": "green",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
         },
         {
-          title: 'Cinco',
-          color: 'blue',
-          content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
+          "title": "Deuce",
+          "color": "orange",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
         },
         {
-          title: 'Seis',
-          color: 'red',
-          content: "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
+          "title": "Siete",
+          "color": "orange",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
         },
         {
-          title: 'Siete',
-          color: 'orange',
-          content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
+          "title": "Cinco",
+          "color": "blue",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
         },
         {
-          title: 'Ocho',
-          color: 'green',
-          content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
+          "title": "Diaz",
+          "color": "blue",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
         },
         {
-          title: 'Nueve',
-          color: 'blue',
-          content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
+          "title": "Nueve",
+          "color": "blue",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
         },
         {
-          title: 'Diaz',
-          color: 'blue',
-          content: 'asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin '
-        },
-     ]
+          "title": "Quattro",
+          "color": "blue",
+          "content": "asnvnewnfivbnoirsean \ninaivindrif \nvnadnvnin "
+        }
+      ],
+      isAddNoteModelActive: false,
     };
   }
 
@@ -77,22 +77,25 @@ class App extends Component {
   }
 
   saveNewNote(note) {
-    console.log('this is a new note: ', JSON.stringify(note));
     let notesList = [...this.state.notes, note];
-    // notesList.sort((a, b) => {
-    //   if (a.color === b.color) {
-    //     return a.title > b.title;
-    //   } else {
-    //     return a.color > b.color;
-    //   }
-    // });
-
+    let colorMap = {
+      'red': 1,
+      'green': 2,
+      'orange': 3,
+      'blue': 4
+    }
+    notesList.sort((a, b) => {
+      if (colorMap[a.color] === colorMap[b.color]) {
+        return a.title.toLowerCase() > b.title.toLowerCase();
+      } else {
+        return colorMap[a.color] > colorMap[b.color];
+      }
+    });
+    console.log(JSON.stringify(note));
     this.setState({
       notes: notesList
     });
   }
-
-
 
   render() {
     return (
@@ -112,8 +115,5 @@ class App extends Component {
     )
   }
 }
-
-App.propTypes = {
-};
 
 export default App;
