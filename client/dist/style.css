@@ -67,7 +67,7 @@ body {
 
 /*****************************
 
-=========== BOARD ============
+=== BOARD (DISPLAYS NOTES) ===
 
 *****************************/
 
@@ -84,6 +84,12 @@ body {
 	justify-content: flex-start;
 	flex-flow: row wrap;
 }
+
+/*****************************
+
+====== INDIVIDUAL NOTES ======
+
+*****************************/
 
 .note {
 	height: 290px;
